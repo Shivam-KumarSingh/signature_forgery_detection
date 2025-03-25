@@ -352,3 +352,60 @@ def trainAndTest(rate=0.001, epochs=1700, neurons=7, display=False):
 
 evaluate(train_path, test_path, type2=True)
 
+
+# import tensorflow as tf
+# from tensorflow.keras.layers import (
+#     Conv2D, MaxPooling2D, Flatten, 
+#     Dense, Dropout, BatchNormalization
+# )
+# from tensorflow.keras.models import Sequential
+
+# def create_signature_cnn(input_shape=(224, 224, 1), num_classes=2):
+#     """
+#     Create a CNN specifically designed for signature analysis
+    
+#     Parameters:
+#     - input_shape: Expected input image dimensions
+#     - num_classes: Number of output classes (genuine/forged)
+    
+#     Returns:
+#     - Compiled CNN model
+#     """
+#     model = Sequential([
+#         # First Convolutional Block - Focus on edge and texture features
+#         Conv2D(32, (3, 3), activation='relu', input_shape=input_shape, padding='same'),
+#         BatchNormalization(),
+#         MaxPooling2D((2, 2)),
+        
+#         # Second Convolutional Block - Capture more complex signature characteristics
+#         Conv2D(64, (3, 3), activation='relu', padding='same'),
+#         BatchNormalization(),
+#         MaxPooling2D((2, 2)),
+        
+#         # Third Convolutional Block - Deeper feature extraction
+#         Conv2D(128, (3, 3), activation='relu', padding='same'),
+#         BatchNormalization(),
+#         MaxPooling2D((2, 2)),
+        
+#         # Flatten and Dense Layers
+#         Flatten(),
+#         Dense(256, activation='relu'),
+#         Dropout(0.5),  # Prevent overfitting
+#         Dense(128, activation='relu'),
+#         Dropout(0.3),
+        
+#         # Output Layer
+#         Dense(num_classes, activation='softmax')
+#     ])
+    
+#     model.compile(
+#         optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
+#         loss='categorical_crossentropy',
+#         metrics=['accuracy']
+#     )
+    
+#     return model
+
+# # Example usage
+# signature_cnn = create_signature_cnn(input_shape=(224, 224, 1))
+# #
